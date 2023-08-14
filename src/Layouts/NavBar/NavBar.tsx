@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const NavBar: FC = () => {
   return (
@@ -13,10 +14,12 @@ const NavBar: FC = () => {
             />
           </figure>
         </div>
-        <div className="flex ">
-          <AiOutlineShoppingCart size={50} style={{ color: "white" }} />
-          <h1 className="pt-5 text-xl text-[#5fbdc1]">Cart</h1>
-        </div>
+        <Link to="details">
+          <div className="flex ">
+            <AiOutlineShoppingCart size={50} style={{ color: "white" }} />
+            <h1 className="pt-5 text-xl text-[#5fbdc1]">Cart</h1>
+          </div>
+        </Link>
       </nav>
     </header>
   );
