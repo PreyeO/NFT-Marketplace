@@ -5,7 +5,7 @@ import { HashLink as Link } from "react-router-hash-link";
 
 const Hero: FC = () => {
   return (
-    <section className="flex flex-col py-5">
+    <section className="flex flex-col py-5 flex-wrap">
       <div className="flex justify-around">
         <div className="flex-col">
           <h1 className="text-7xl font-bold leading-[160%]">Discover & Buy</h1>
@@ -21,8 +21,8 @@ const Hero: FC = () => {
             <MainBtn label="Explore" />
           </Link>
         </div>
-        <div className="flex-col py-10">
-          <figure>
+        <div className="flex-col py-10 hidden md:block md:center">
+          <figure className="">
             <img
               src={heroImage}
               alt="hero image"

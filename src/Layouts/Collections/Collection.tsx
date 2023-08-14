@@ -10,7 +10,7 @@ const Collection: FC = () => {
       id="collection"
     >
       <h2 className="text-5xl font-bold pb-10">Top Collections</h2>
-      <div className="flex gap-8">
+      <div className="flex justify-evenly gap-2 flex-wrap">
         <CollectionBtn label="View All" />
         <CollectionBtn label="Arts" />
         <CollectionBtn label="Music" />
