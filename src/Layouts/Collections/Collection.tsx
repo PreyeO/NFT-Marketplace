@@ -1,8 +1,7 @@
 import { FC } from "react";
 import CollectionBtn from "../../Component/UI/Buttons/collectionBtn";
-
 import NftCard from "../../Component/UI/Cards/NftCard";
-import project from "../../assets/project.svg";
+import project from "../../assets/heroimage.webp";
 
 const Collection: FC = () => {
   return (
