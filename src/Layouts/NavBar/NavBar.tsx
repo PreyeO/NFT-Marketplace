@@ -1,10 +1,19 @@
 import { FC } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Store/store";
 
 const NavBar: FC = () => {
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems);
+
+  const cartItemCount = cartItems.reduce(
+    (total, item) => total + item.cartQuantity,
+    0
+  );
+
   return (
-    <header className="flex flex-col h-[8rem]">
+    <header className="flex flex-col h-[6rem]">
       <nav className="flex justify-around pt-5">
         <Link to="/">
           <div>
@@ -16,10 +25,11 @@ const NavBar: FC = () => {
             </figure>
           </div>
         </Link>
-        <Link to="details">
+        <Link to="/details">
           <div className="flex ">
             <AiOutlineShoppingCart size={50} style={{ color: "white" }} />
             <h1 className="pt-5 text-xl text-[#5fbdc1]">Cart</h1>
+            <span className="ml-1 text-white">{cartItemCount}</span>
           </div>
         </Link>
       </nav>
