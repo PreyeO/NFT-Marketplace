@@ -24,8 +24,10 @@ This is a platform for people to discover, buy and list NFTS.
 
 # Dev Dependencies/Tools
 
-1. React
-3. React-toastify
+1. Reactjs
+2. Typescript
+3. Tailwind
+4. React-toastify
 5. React-router-Dom
 6. Axios
 7. Opensea API
