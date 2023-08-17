@@ -9,15 +9,15 @@ const Hero: FC = () => {
       <div className="flex justify-evenly lg-justify-around">
         <div className="flex-col flex-wrap">
           <h1 className="md:text-7xl font-bold leading-[160%] text-4xl">
-            Discover & Buy
+            Unlock, & Buy
           </h1>
           <h1 className="md:text-6xl font-bold text-orange-400 pb-2 text-5xl">
-            Extraordinary
+            Exceptional
           </h1>
           <h1 className="md:text-5xl font-bold pt-1 text-4xl">NFTS</h1>
           <p className="text-xl leading-[150%] max-w-[25rem] pt-6 pb-10">
-            The Leading NFT marketplace On Etherum. Home To The Next Generation
-            Of Digital Creators. The Leading NFT marketplace On Etherum.
+            Your Premier Ethereum Marketplace, Empowering the Future Generation
+            of Digital Artistr
           </p>
           <Link to="#collection" smooth>
             <MainBtn label="Explore" />

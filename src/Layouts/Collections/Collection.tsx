@@ -29,22 +29,29 @@ const Collection: FC = () => {
     photosCollection: [],
   });
   const [activeCollection, setActiveCollection] = useState<Nft[]>([]);
+  const [activeCollectionName, setActiveCollectionName] =
+    useState<keyof Collections>("artCollection");
+
   // const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
   useEffect(() => {
     getAllCollections()
-      .then((fetchedCollections: Collections) =>
-        setCollections(fetchedCollections)
-      )
+      .then((fetchedCollections: Collections) => {
+        setCollections(fetchedCollections);
+        setActiveCollection(fetchedCollections[activeCollectionName] || []);
+      })
       .catch((error) => {
         console.error("Error:", error);
       });
-  }, []);
+  }, [activeCollectionName]);
 
   console.log(collections);
 
   const handleCollectionChange = (collectionName: keyof Collections) => {
+    setActiveCollectionName(collectionName);
     setActiveCollection(collections[collectionName] || []);
+
+    localStorage.setItem("activeCollectionName", collectionName);
   };
 
   const dispatch = useDispatch();
@@ -68,22 +75,28 @@ const Collection: FC = () => {
       className="py-20 flex flex-col items-center text-center"
       id="collection"
     >
-      <h2 className="md:text-5xl font-bold pb-10 text-4xl">Top Collections</h2>
-      <div className="flex justify-evenly gap-2 flex-wrap">
+      <h2 className="md:text-5xl font-bold pb-10 text-4xl pt-6">
+        Top Collections
+      </h2>
+      <div className="flex justify-evenly gap-2 flex-wrap pt-6">
         <CollectionBtn
           label="Arts"
+          isActive={activeCollectionName === "artCollection"} // Pass active state
           onClick={() => handleCollectionChange("artCollection")}
         />
         <CollectionBtn
           label="Music"
+          isActive={activeCollectionName === "musicCollection"}
           onClick={() => handleCollectionChange("musicCollection")}
         />
         <CollectionBtn
           label="Games"
+          isActive={activeCollectionName === "gamingCollection"}
           onClick={() => handleCollectionChange("gamingCollection")}
         />
         <CollectionBtn
           label="Photograph"
+          isActive={activeCollectionName === "photosCollection"}
           onClick={() => handleCollectionChange("photosCollection")}
         />
       </div>

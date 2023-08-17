@@ -25,13 +25,12 @@ const NavBar: FC = () => {
             </figure>
           </div>
         </Link>
-        <Link to="/details">
-          <div className="flex ">
-            <AiOutlineShoppingCart size={50} style={{ color: "white" }} />
-            <h1 className="pt-5 text-xl text-[#5fbdc1]">Cart</h1>
-            <span className="ml-1 text-white">{cartItemCount}</span>
-          </div>
-        </Link>
+
+        <div className="flex ">
+          <AiOutlineShoppingCart size={50} style={{ color: "white" }} />
+          <h1 className="pt-5 text-xl text-[#5fbdc1]">Cart</h1>
+          <span className="ml-1 text-white">{cartItemCount}</span>
+        </div>
       </nav>
     </header>
   );

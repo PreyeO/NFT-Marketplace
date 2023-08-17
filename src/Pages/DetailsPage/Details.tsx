@@ -2,6 +2,7 @@ import { FC } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../Store/store";
 import { removeFromCart } from "../../Layouts/Cart/CartSlice";
+import MainBtn from "../../Component/UI/Buttons/MainBtn";
 
 interface DetailsProps {}
 
@@ -13,58 +14,60 @@ const Details: FC<DetailsProps> = () => {
     dispatch(removeFromCart(itemName));
   };
 
-  const cartTotalAmount = useSelector(
-    (state: RootState) => state.cart.cartTotalAmount
-  );
   const price = 200;
+  const totalCartAmount = cartItems.reduce((total, nft) => {
+    return total + price * nft.cartQuantity;
+  }, 0);
 
   return (
-    <main>
-      <div className="flex justify-around">
-        <div className="flex gap-8">
-          <strong id="qty">QTY</strong>
-          <strong>Unit Price</strong>
-          <strong>Sub-total</strong>
-        </div>
-        <h2>Cart Items:</h2>
-        <div className="py-12 flex">
-          {cartItems.map((nft) => (
-            <div key={nft.id}>
-              <img src={nft.image_url} alt={nft.name} className="h-[10rem]" />
-              <p>Name: {nft.name}</p>
-              <p>${price}</p>
-              <p>Quantity: {nft.cartQuantity}</p>
-              <p>Sub-total:${price * nft.cartQuantity}</p>
-              <button onClick={() => handleRemoveFromCart(nft.name)}>
+    <main className="flex flex-col">
+      <div className=" px-5 p-6">
+        <strong className="text-2xl font-bold">Items:</strong>
+      </div>
+
+      <div className="py-12">
+        {cartItems.map((nft) => (
+          <div key={nft.id}>
+            <div className="flex justify-evenly">
+              <div className="px-8 flex-col mb-8 flex-wrap">
+                <img
+                  src={nft.image_url}
+                  alt={nft.name}
+                  className="h-[10rem] rounded-md"
+                />
+                <p className="text-lg">Name: {nft.name}</p>
+              </div>
+              <div className="text-lg  ">
+                <p className="pt-4">
+                  <strong> Quantity</strong>: {nft.cartQuantity}
+                </p>
+                <p className="pt-4">
+                  {" "}
+                  <strong>Unit Price</strong>: ${price}
+                </p>
+                <p className="pt-4">
+                  <strong>Sub-total</strong>: ${price * nft.cartQuantity}
+                </p>
+              </div>
+
+              <button
+                onClick={() => handleRemoveFromCart(nft.name)}
+                className="mb-[10rem] text-red-500 text-lg"
+              >
                 Remove
               </button>
-              <hr />
             </div>
-          ))}
-        </div>
-        <p>Total Cart Amount: {cartTotalAmount}</p>
+          </div>
+        ))}
+      </div>
+      <p className="text-center pb-4 text-xl">
+        Total Cart Amount: ${totalCartAmount}
+      </p>
+      <div className="flex items-center text-center justify-center mb-4">
+        <MainBtn label="Checkout" />
       </div>
     </main>
   );
 };
 
 export default Details;
-
-{
-  /* // <div className="flex justify-around">
-//       <h2>{name}</h2>
-//       <div className="flex gap-8">
-//         <strong id="qty">QTY</strong>
-//         <strong>Unit Price</strong>
-//         <strong>Sub-total</strong>
-//       </div>
-//     </div>
-//     <figure>
-//       {image && <img src={image} alt={name} className="h-[10rem]" />}
-//     </figure>
-//     <p>Quantity: {cartQuantity}</p>
-//     {price && <p>Unit Price: {price}</p>}
-//     <p>Sub-total: {subtotal}</p>
-//     <p>Cart Total: {cartTotalAmount}</p>
-//     <button onClick={handleRemoveFromCart}>Remove</button> */
-}

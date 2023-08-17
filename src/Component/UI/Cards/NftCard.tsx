@@ -29,14 +29,19 @@ const NftCard: FC<Props> = ({
           {name}
         </h3>
       </div>
-      <p className="py-7 text-lg font-bold text-white">{description}</p>
+      <p className="py-7  text-white">{description}</p>
       <div className="flex justify-around">
         <h3 className="pt-3">
           {currency}
           {price}
         </h3>
-        <button onClick={onBuyNowClick}>Buy Now</button>
-        <button onClick={onSeeCartClick}>See Cart</button>
+        <button
+          onClick={onBuyNowClick}
+          className="w-[100px] h-10 border bg-[green] border-solid rounded-md text-lg font-semibold hover:bg-black"
+        >
+          Buy Now
+        </button>
+        <button onClick={onSeeCartClick}>See cart</button>
       </div>
     </div>
   );

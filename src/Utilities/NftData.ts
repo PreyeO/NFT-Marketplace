@@ -12,7 +12,7 @@ const config = {
 };
 const getArtCollection = async () => {
   const response = await axios.get(
-    `${apiLink}/remivision/nfts?limit=10`,
+    `${apiLink}/remivision/nfts?limit=6`,
     config
   );
   return response.data?.nfts;
@@ -23,7 +23,7 @@ const getMusicCollection = async () => {
 };
 const getGamingCollection = async () => {
   const response = await axios.get(
-    `${apiLink}/skyborne-genesisimmortals/nfts?limit=10`,
+    `${apiLink}/skyborne-genesisimmortals/nfts?limit=6`,
     config
   );
   return response.data?.nfts;
