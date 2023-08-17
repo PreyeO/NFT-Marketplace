@@ -2,7 +2,9 @@ import { FC } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../Store/store";
 import { removeFromCart } from "../../Layouts/Cart/CartSlice";
-import MainBtn from "../../Component/UI/Buttons/MainBtn";
+
+import { Link } from "react-router-dom";
+import CartBtn from "../../Component/UI/Buttons/CartBtn";
 
 interface DetailsProps {}
 
@@ -63,9 +65,11 @@ const Details: FC<DetailsProps> = () => {
       <p className="text-center pb-4 text-xl">
         Total Cart Amount: ${totalCartAmount}
       </p>
-      <div className="flex items-center text-center justify-center mb-4">
-        <MainBtn label="Checkout" />
-      </div>
+      <Link to="/checkout">
+        <div className="flex items-center text-center justify-center mb-4">
+          <CartBtn label="Checkout" />
+        </div>
+      </Link>
     </main>
   );
 };

@@ -15,7 +15,7 @@ const Hero: FC = () => {
             Exceptional
           </h1>
           <h1 className="md:text-5xl font-bold pt-1 text-4xl">NFTS</h1>
-          <p className="text-xl leading-[150%] max-w-[25rem] pt-6 pb-10">
+          <p className="text-xl leading-[150%] max-w-[25rem] pt-6 pb-10 ">
             Your Premier Ethereum Marketplace, Empowering the Future Generation
             of Digital Artistr
           </p>
