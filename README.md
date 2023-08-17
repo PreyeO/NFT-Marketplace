@@ -1,4 +1,4 @@
-# Residio Nft MarketPlace
+# NFT MarketPlace
 
 # Overview
 
