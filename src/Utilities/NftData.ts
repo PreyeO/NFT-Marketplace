@@ -18,7 +18,7 @@ const getArtCollection = async () => {
   return response.data?.nfts;
 };
 const getMusicCollection = async () => {
-  const response = await axios.get(`${apiLink}/loudpunx/nfts?limit=10`, config);
+  const response = await axios.get(`${apiLink}/loudpunx/nfts?limit=6`, config);
   return response.data?.nfts;
 };
 const getGamingCollection = async () => {

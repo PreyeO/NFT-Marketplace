@@ -103,11 +103,11 @@ const Collection: FC = () => {
           onClick={() => handleCollectionChange("photosCollection")}
         />
       </div>
-      <div className="py-10 flex flex-wrap items-center justify-center gap-7">
+      <div className="py-10 ">
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div>
+          <div className="flex flex-wrap items-center justify-center gap-7 pt-5">
             {activeCollection.map((nft) => (
               <NftCard
                 key={nft.identifier}
