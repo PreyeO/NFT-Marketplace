@@ -31,10 +31,10 @@ const Collection: FC = () => {
   const [activeCollection, setActiveCollection] = useState<Nft[]>([]);
   const [activeCollectionName, setActiveCollectionName] =
     useState<keyof Collections>("artCollection");
-
-  // const cartItems = useSelector((state: RootState) => state.cart.cartItems);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    setLoading(true);
     getAllCollections()
       .then((fetchedCollections: Collections) => {
         setCollections(fetchedCollections);
@@ -42,6 +42,9 @@ const Collection: FC = () => {
       })
       .catch((error) => {
         console.error("Error:", error);
+      })
+      .finally(() => {
+        setLoading(false); // Set loading to false after fetching (regardless of success or error)
       });
   }, [activeCollectionName]);
 
@@ -101,18 +104,24 @@ const Collection: FC = () => {
         />
       </div>
       <div className="py-10 flex flex-wrap items-center justify-center gap-7">
-        {activeCollection.map((nft) => (
-          <NftCard
-            key={nft.identifier}
-            name={nft.name}
-            image={nft.image_url}
-            description={nft.description}
-            currency="$"
-            price={200}
-            onBuyNowClick={() => handleAddToCart(nft)}
-            onSeeCartClick={() => handleSeeDetails(nft)}
-          />
-        ))}
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <div>
+            {activeCollection.map((nft) => (
+              <NftCard
+                key={nft.identifier}
+                name={nft.name}
+                image={nft.image_url}
+                description={nft.description}
+                currency="$"
+                price={200}
+                onBuyNowClick={() => handleAddToCart(nft)}
+                onSeeCartClick={() => handleSeeDetails(nft)}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
