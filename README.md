@@ -1,27 +1,38 @@
-# React + TypeScript + Vite
+# Residio Nft MarketPlace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Overview
 
-Currently, two official plugins are available:
+This is a platform for people to discover, buy and list NFTS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features
 
-## Expanding the ESLint configuration
+1. Top Collections: This is a layout where the top NFTS are displayed. When any collection is selected, it showcases all nfts in that collection. Shows the names, image, description, price and have attached two buttons to add to cart and see cart details.
+2. Add to cart:  when the add to cart button is clicked, the number of items added are seen in the cart on the navbar.
+3. Details page: When the See cart button is clicked, it routes to the details page where it showcases more all items added to cart.
+4. Remove button: The remove button remove items from the cart.
+5. SubTotal: Sub total, sums up same items.
+6. TotalAmount: calculates the total item in the cart. 
+7. Checkout Button: checkout button redirects users to checkout page.
+8. Checkout: This is where payment is done.
+   
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Running The Project
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone this project locally.
+2. Run npm install in your bash/command line.
+3. Run npm run dev in your bash/command line.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+# Dev Dependencies/Tools
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. React
+3. React-toastify
+5. React-router-Dom
+6. Axios
+7. Opensea API
+8. redux toolkits
+9. React-icons
+
+# Link To Live App
+
+[Residio]([https://the-nftmarketplce.netlify.app])
+
